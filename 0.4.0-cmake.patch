@@ -1,0 +1,24 @@
+--- origsrc/qedje-mainline/cmake/modules/SIPMacros.cmake	2009-02-19 07:41:36.000000000 -0600
++++ src/qedje-mainline/cmake/modules/SIPMacros.cmake	2009-06-23 13:44:02.655163500 -0500
+@@ -107,7 +107,7 @@ MACRO(ADD_SIP_PYTHON_MODULE MODULE_NAME 
+         DEPENDS ${_abs_module_sip} ${SIP_EXTRA_FILES_DEPEND}
+     )
+ 
+-    ADD_LIBRARY(${_logical_name} SHARED ${_sip_output_files} )
++    ADD_LIBRARY(${_logical_name} MODULE ${_sip_output_files} )
+     TARGET_LINK_LIBRARIES(${_logical_name} ${PYTHON_LIBRARY})
+     TARGET_LINK_LIBRARIES(${_logical_name} ${EXTRA_LINK_LIBRARIES})
+     SET_TARGET_PROPERTIES(${_logical_name} PROPERTIES PREFIX "" OUTPUT_NAME ${_child_module_name})
+--- origsrc/qedje-mainline/src/CMakeLists.txt	2009-02-19 07:41:36.000000000 -0600
++++ src/qedje-mainline/src/CMakeLists.txt	2009-06-23 13:44:47.728352200 -0500
+@@ -30,7 +30,9 @@ set_target_properties(qedje PROPERTIES
+     SOVERSION ${QEDJE_LIB_MAJOR_VERSION}
+     )
+ 
+-install(TARGETS qedje LIBRARY DESTINATION ${LIB_INSTALL_DIR}/)
++install(TARGETS qedje LIBRARY DESTINATION ${LIB_INSTALL_DIR}/
++                      RUNTIME DESTINATION bin/
++                      ARCHIVE DESTINATION ${LIB_INSTALL_DIR}/)
+ install(FILES ${qedje_HEADERS} DESTINATION include/)
+ 
+ if (NOT WIN32)

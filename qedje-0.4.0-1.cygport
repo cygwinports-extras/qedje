@@ -1,0 +1,11 @@
+GIT_REV="0206ec8f2a802bf51455179933d8b7ab3e41a38b"
+inherit qt4-cmake
+
+
+HOMEPAGE="http://code.openbossa.org/projects/qedje"
+SRC_URI="http://code.openbossa.org/projects/${PN}/repos/mainline/archive/${GIT_REV}.tar.gz"
+SRC_DIR="${PN}-mainline"
+
+PATCH_URI="0.4.0-cmake.patch"
+
+CYGCMAKE_ARGS="-DQZION_SIP_DIR=/usr/share/sip/qzion"
