@@ -1,11 +1,17 @@
 GIT_REV="0206ec8f2a802bf51455179933d8b7ab3e41a38b"
-inherit qt4-cmake
+inherit python qt4-cmake
 
-
+DESCRIPTION="Qt4 Edje library"
 HOMEPAGE="http://code.openbossa.org/projects/qedje"
 SRC_URI="http://code.openbossa.org/projects/${PN}/repos/mainline/archive/${GIT_REV}.tar.gz"
 SRC_DIR="${PN}-mainline"
 
 PATCH_URI="0.4.0-cmake.patch"
+
+PKG_NAMES="${PN} libqedje0 libqedje-devel python-qedje"
+qedje_CONTENTS="usr/bin/*.exe usr/share/doc/"
+libqedje0_CONTENTS="usr/bin/cygqedje-0.dll"
+libqedje_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
+python_qedje_CONTENTS="${PYTHON_SITELIB#/} usr/share/sip/"
 
 CYGCMAKE_ARGS="-DQZION_SIP_DIR=/usr/share/sip/qzion"

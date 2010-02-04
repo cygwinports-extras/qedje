@@ -1,0 +1,12 @@
+category: KDE Python
+requires: libgcc1 libqedje0 libQtCore4 libQtGui4 libqzion0 libstdc++6 python python-pyqt4 python-qzion python-sip
+external-source: qedje
+sdesc: "Qt4 Edje library (Python bindings)"
+ldesc: "Edje is a declarative language that simplifies the development 
+of complex interfaces separating the UI design from the application 
+logic, by providing animations, layouts and simple scripts in a very 
+small memory footprint. The main purpose of the QEdje project is to 
+build a bridge among components that proved to have great value for open 
+source developers: Edje and Qt. This will extend the Qt toolkit with the 
+flexibility of a declarative language, such as Edje, and also enable Qt 
+widgets to be embedded into Edje UI design."

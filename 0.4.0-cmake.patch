@@ -10,8 +10,8 @@
      TARGET_LINK_LIBRARIES(${_logical_name} ${EXTRA_LINK_LIBRARIES})
      SET_TARGET_PROPERTIES(${_logical_name} PROPERTIES PREFIX "" OUTPUT_NAME ${_child_module_name})
 --- origsrc/qedje-mainline/src/CMakeLists.txt	2009-02-19 07:41:36.000000000 -0600
-+++ src/qedje-mainline/src/CMakeLists.txt	2009-06-23 13:44:47.728352200 -0500
-@@ -30,7 +30,9 @@ set_target_properties(qedje PROPERTIES
++++ src/qedje-mainline/src/CMakeLists.txt	2010-02-03 20:12:54.217172600 -0600
+@@ -30,10 +30,12 @@ set_target_properties(qedje PROPERTIES
      SOVERSION ${QEDJE_LIB_MAJOR_VERSION}
      )
  
@@ -22,3 +22,7 @@
  install(FILES ${qedje_HEADERS} DESTINATION include/)
  
  if (NOT WIN32)
+     configure_file(qedje.pc.cmake qedje.pc @ONLY)
+-    install(FILES ${CMAKE_BINARY_DIR}/qedje.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig/)
++    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/qedje.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig/)
+ endif (NOT WIN32)
